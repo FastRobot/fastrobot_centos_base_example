@@ -3,4 +3,4 @@
 # Recipe:: default
 #
 # Copyright (c) 2017 John Cook, All Rights Reserved.
-package %w( tmux sysstat tree )
+package %w( tmux sysstat )
