@@ -1,0 +1,31 @@
+{
+  "builders": [{
+    "type": "googlecompute",
+    "project_id": "insert_your_gce_project_id_here",
+    "source_image": "centos-7-v20161212",
+    "zone": "us-west1-b",
+    "image_description": "Test Build of Centos-7 Image for FastRobot",
+    "image_family": "fastrobot-centos7",
+    "ssh_username": "centos"
+  }],
+  "provisioners": [
+    {
+      "type": "shell-local",
+      "command": "berks vendor ../berks_centos_base --delete"
+    },
+    {
+      "type": "chef-solo",
+      "cookbook_paths": [ "../berks_centos_base" ],
+      "run_list": [ "fastrobot_centos_base_example::default" ]
+    },
+    {
+      "type": "file",
+      "source": "test",
+      "destination": "/tmp"
+    },
+    {
+      "type": "shell",
+      "script": "scripts/run_inspec_tests.sh"
+    }
+  ]
+}

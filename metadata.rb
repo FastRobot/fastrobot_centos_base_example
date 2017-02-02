@@ -1,0 +1,7 @@
+name 'fastrobot_centos_base_example'
+maintainer 'John Cook'
+maintainer_email 'jcook@fastrobot.com'
+license 'all_rights'
+description 'Installs/Configures fastrobot_centos_base'
+long_description 'Installs/Configures fastrobot_centos_base'
+version '0.1.0'
